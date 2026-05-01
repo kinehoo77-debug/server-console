@@ -1,0 +1,18 @@
+﻿{% extends "base.html" %}
+{% block title %}系统日志 - server-console{% endblock %}
+{% block page_title %}系统日志查看{% endblock %}
+{% block content %}
+<div class="panel-card mb-3">
+  <div class="d-flex flex-wrap gap-2 align-items-center">
+    <input id="logSearch" class="form-control form-control-sm search-input" placeholder="搜索关键词">
+    <button id="logRefreshBtn" class="btn btn-outline-secondary btn-sm">刷新</button>
+    <button id="logClearBtn" class="btn btn-outline-danger btn-sm">清空视图</button>
+    <span class="text-secondary small">日志文件：<span id="logPath">-</span></span>
+  </div>
+</div>
+
+<div class="panel-card">
+  <pre id="logContent" class="log-box">加载中...</pre>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/logs.js') }}"></script>{% endblock %}

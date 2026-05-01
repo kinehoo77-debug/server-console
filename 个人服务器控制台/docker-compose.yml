@@ -1,0 +1,19 @@
+﻿version: "3.9"
+
+services:
+  server-console:
+    build: .
+    container_name: server-console
+    restart: unless-stopped
+    ports:
+      - "7010:7010"
+    environment:
+      - SECRET_KEY=please-change-this-secret
+      - ADMIN_PASSWORD=replace-with-strong-password
+      - PORT=7010
+      - FILE_ROOT=/host
+      - LOG_FILE=/host/var/log/syslog
+      - DOCKER_PANEL_URL=http://38.76.188.104:7080/
+      - MAX_UPLOAD_MB=200
+    volumes:
+      - /:/host

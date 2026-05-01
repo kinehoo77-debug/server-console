@@ -1,0 +1,28 @@
+﻿{% extends "base.html" %}
+{% block title %}系统监控 - server-console{% endblock %}
+{% block page_title %}系统监控仪表盘{% endblock %}
+{% block content %}
+<div class="row g-3 mb-3">
+  <div class="col-xl-3 col-md-6"><div class="metric-card"><div class="metric-label">CPU 使用率</div><div id="cpuValue" class="metric-value">0%</div></div></div>
+  <div class="col-xl-3 col-md-6"><div class="metric-card"><div class="metric-label">内存使用率</div><div id="memValue" class="metric-value">0%</div></div></div>
+  <div class="col-xl-3 col-md-6"><div class="metric-card"><div class="metric-label">磁盘使用率</div><div id="diskValue" class="metric-value">0%</div></div></div>
+  <div class="col-xl-3 col-md-6"><div class="metric-card"><div class="metric-label">网络吞吐</div><div id="netValue" class="metric-value">0 KB/s</div></div></div>
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-lg-6"><div class="panel-card"><h5>CPU 实时趋势</h5><div id="cpuLineChart" class="chart-box"></div></div></div>
+  <div class="col-lg-3"><div class="panel-card"><h5>内存占用</h5><div id="memoryPieChart" class="chart-box pie"></div></div></div>
+  <div class="col-lg-3"><div class="panel-card"><h5>磁盘占用</h5><div id="diskPieChart" class="chart-box pie"></div></div></div>
+</div>
+
+<div class="panel-card">
+  <h5>系统信息</h5>
+  <div class="row g-3">
+    <div class="col-md-3"><div class="info-item">IP：<span id="infoIp">-</span></div></div>
+    <div class="col-md-3"><div class="info-item">系统：<span id="infoOs">-</span></div></div>
+    <div class="col-md-3"><div class="info-item">运行时间：<span id="infoUptime">-</span></div></div>
+    <div class="col-md-3"><div class="info-item">负载：<span id="infoLoad">-</span></div></div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>{% endblock %}

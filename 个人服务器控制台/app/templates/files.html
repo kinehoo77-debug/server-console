@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% block title %}文件管理 - server-console{% endblock %}
+{% block page_title %}可视化文件管理{% endblock %}
+{% block content %}
+<div class="panel-card mb-3">
+  <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+    <button id="backBtn" class="btn btn-outline-primary btn-sm">返回上级</button>
+    <button id="refreshBtn" class="btn btn-outline-secondary btn-sm">刷新</button>
+    <button id="newFolderBtn" class="btn btn-outline-success btn-sm">新建文件夹</button>
+    <button id="uploadBtn" class="btn btn-primary btn-sm">上传文件</button>
+    <input id="fileInput" type="file" multiple hidden>
+    <span class="text-secondary small">当前路径：<span id="currentPath">/</span></span>
+  </div>
+  <div id="dropZone" class="drop-zone">拖拽文件到这里上传，或点击“上传文件”</div>
+</div>
+
+<div class="panel-card table-wrap">
+  <table class="table align-middle mb-0">
+    <thead><tr><th>名称</th><th>类型</th><th>大小</th><th>修改时间</th><th>操作</th></tr></thead>
+    <tbody id="fileTableBody"></tbody>
+  </table>
+</div>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/files.js') }}"></script>{% endblock %}
